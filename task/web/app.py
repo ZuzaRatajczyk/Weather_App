@@ -1,12 +1,18 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import sys
 
 
 app = Flask(__name__)
 
 @app.route("/")
-def hello():
-    return render_template('index.html')
+def show_weather():
+    return render_template("index.html")
+
+@app.route("/add", methods=["POST"])
+def add_weather():
+    if request.method == "POST":
+        return "test"
+
 
 # don't change the following way to run flask:
 if __name__ == '__main__':
